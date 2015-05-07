@@ -14,7 +14,20 @@ The 'Reset MDM' script removes the existing MDM profile on a client, then immedi
 
 ## How to deploy this script in a policy
 
-Upload the script to your JSS and create a policy. It is important to note that the script in its current form does no checking to ensure the user is connected to the network over ethernet or on a wireless network that is not managed by configuration profiles. In JAMF Software's Self Service, we force users to read the policy description and note they should be connected to ethernet or the guest wireless network before running.
+Upload the script to your JSS and create a policy. Replace the 'mdmuuid' variable with the UUID of your JSS's MDM profile. You can find this UUID with the following command on a managed Mac:
+
+```
+~$ sudo profiles -Pv
+profiles: verbose mode ON
+_computerlevel[1] attribute: name: MDM Profile
+_computerlevel[1] attribute: configurationDescription: MDM Profile for mobile device management
+_computerlevel[1] attribute: installationDate: 2015-03-27 00:31:46 +0000
+_computerlevel[1] attribute: organization: JAMF Software
+_computerlevel[1] attribute: profileIdentifier: <<<UUID-IS-FOUND-HERE>>>
+_computerlevel[1] attribute: profileUUID: <<<UUID-IS-FOUND-HERE>>>
+```
+
+It is important to note that the script in its current form does no checking to ensure the user is connected to the network over ethernet or on a wireless network that is not managed by configuration profiles. In JAMF Software's Self Service, we force users to read the policy description and note they should be connected to ethernet or the guest wireless network before running.
 
 An icon you might use for this policy can be found in the /images directory.
 
