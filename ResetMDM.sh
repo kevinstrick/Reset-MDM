@@ -20,12 +20,12 @@ status=$?
 echo ""
 if [ $status -ne 0 ]; then
     echo "There was an error installing the MDM profile: $status"
-    /usr/bin/osascript -e 'Tell application "Self Service" to display dialog "There was an error obtaining a new MDM profile.\n\nPlease contact IT for assistance." with title "jamf error" with text buttons {"OK"} default button 1 with icon file "System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:AlertCautionIcon.icns" giving up after 15'
+    /usr/bin/osascript -e 'Tell application "Fox Self Service" to display dialog "There was an error obtaining a new MDM profile.\n\nPlease contact IT for assistance." with title "jamf error" with text buttons {"OK"} default button 1 with icon file "System:Library:CoreServices:CoreTypes.bundle:Contents:Resources:AlertCautionIcon.icns" giving up after 15'
     exit $status
 fi
 
 echo "Running Recon"
 $jamf_binary recon
-/usr/bin/osascript -e 'Tell application "Self Service" to display dialog "Profiles should now be pushed to your Mac.\n\nIf you do not see profiles populating after five minutes contact IT for assistance." with title "Success" with text buttons {"OK"} default button 1 with icon file "System:Library:PreferencePanes:Profiles.prefPane:Contents:Resources:Profiles.icns" giving up after 15'
+/usr/bin/osascript -e 'Tell application "Fox Self Service" to display dialog "Profiles should now be pushed to your Mac.\n\nIf you do not see profiles populating after five minutes contact IT for assistance." with title "Success" with text buttons {"OK"} default button 1 with icon file "System:Library:PreferencePanes:Profiles.prefPane:Contents:Resources:Profiles.icns" giving up after 15'
 
 exit 0
