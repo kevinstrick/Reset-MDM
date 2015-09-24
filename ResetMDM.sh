@@ -1,6 +1,6 @@
 #!/bin/bash
 # Replace with the UUID for the MDM profile that is deployed by your JSS
-mdmuuid="00000000-0000-0000-A000-1A234B567890" 
+mdmuuid="00000000-0000-0000-A000-4A414D460004" 
 mdm=$(/usr/bin/profiles -L | grep $mdmuuid)
 jamf_binary=`/usr/bin/which jamf`
 
